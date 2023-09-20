@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OlcuYonetimSistemi", "OlcuYonetimSistemi\OlcuYonetimSistemi.csproj", "{FD7E24D4-83DA-4DA0-9AB2-A0715C09EC5F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD7E24D4-83DA-4DA0-9AB2-A0715C09EC5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD7E24D4-83DA-4DA0-9AB2-A0715C09EC5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD7E24D4-83DA-4DA0-9AB2-A0715C09EC5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD7E24D4-83DA-4DA0-9AB2-A0715C09EC5F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Data.6.0.1304.0\lib\NET45;kages\.nuget\packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;kages\.nuget\packages\EnterpriseLibrary.Data.6.0.1304.0\lib\NET45
+		SolutionGuid = {519FD97B-B704-4841-8FF8-D8F90E53143B}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,1291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DEDASService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="basicEndpoint_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Lax />
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp />
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <sp:SignedSupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:UsernameToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+              <wsp:Policy>
+                <sp:WssUsernameToken10 />
+              </wsp:Policy>
+            </sp:UsernameToken>
+          </wsp:Policy>
+        </sp:SignedSupportingTokens>
+        <sp:Wss10 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy />
+        </sp:Wss10>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/DicleServiceBus" />
+      <xs:element name="LDAPValidate">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="domain" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="LDAPValidateResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DicleServiceBus" minOccurs="0" name="LDAPValidateResult" nillable="true" type="q1:GenericReturnOfboolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SayacArama">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DicleServiceBus" minOccurs="0" name="AramaTipi" type="q2:SayacAramaTipi" />
+            <xs:element minOccurs="0" name="Aranacak" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SayacAramaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/DicleServiceBus" minOccurs="0" name="SayacAramaResult" nillable="true" type="q3:GenericReturnOfArrayOfSayacOzetBilgiBM94PaM9" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SayacDetay">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="TesisatNo" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="SayacNo" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SayacDetayResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/DicleServiceBus" minOccurs="0" name="SayacDetayResult" nillable="true" type="q4:GenericReturnOfSayacDetayBilgiBM94PaM9" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SokulenSayacListesi">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="baslangicTarihi" nillable="true" type="xs:dateTime" />
+            <xs:element minOccurs="0" name="bitisTarihi" nillable="true" type="xs:dateTime" />
+            <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/DicleServiceBus" minOccurs="0" name="aramaTipi" type="q5:SayacAramaTipi" />
+            <xs:element minOccurs="0" name="aranacak" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="IsletmeKodu" nillable="true" type="xs:string" />
+            <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/DicleServiceBus" minOccurs="0" name="SetOrder" nillable="true" type="q6:SokulmusSayacOrder" />
+            <xs:element minOccurs="0" name="PageSize" type="xs:int" />
+            <xs:element minOccurs="0" name="PageNummer" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SokulenSayacListesiResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/DicleServiceBus" minOccurs="0" name="SokulenSayacListesiResult" nillable="true" type="q7:GenericReturnOfArrayOfSokulmusSayacBM94PaM9" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="IsletmeListesi">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="IsletmeListesiResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/DicleServiceBus" minOccurs="0" name="IsletmeListesiResult" nillable="true" type="q8:GenericReturnOfArrayOfKeyValuePairOfintstringR8RmUPp7" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="IsletmeBolgeListesi">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="isletmekodu" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="IsletmeBolgeListesiResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/DicleServiceBus" minOccurs="0" name="IsletmeBolgeListesiResult" nillable="true" type="q9:GenericReturnOfArrayOfKeyValuePairOfintstringR8RmUPp7" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SayacMarkaListesi">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SayacMarkaListesiResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/DicleServiceBus" minOccurs="0" name="SayacMarkaListesiResult" nillable="true" type="q10:GenericReturnOfArrayOfKeyValuePairOfstringstringR8RmUPp7" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SayacMarka">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="SayacNo" type="xs:long" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SayacMarkaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/DicleServiceBus" minOccurs="0" name="SayacMarkaResult" nillable="true" type="q11:GenericReturnOfKeyValuePairOfstringstringR8RmUPp7" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AboneArama">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="TesisatNo" type="xs:long" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AboneAramaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/DicleServiceBus" minOccurs="0" name="AboneAramaResult" nillable="true" type="q12:GenericReturnOfAboneOzetBilgiBM94PaM9" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GecmisAboneUnvan">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="TesisatNo" type="xs:long" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GecmisAboneUnvanResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/DicleServiceBus" minOccurs="0" name="GecmisAboneUnvanResult" nillable="true" type="q13:GenericReturnOfArrayOfTupleOfdateTimestring5F2dSckg" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AboneBorcListesi">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="TesisatNo" type="xs:long" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AboneBorcListesiResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/DicleServiceBus" minOccurs="0" name="AboneBorcListesiResult" nillable="true" type="q14:GenericReturnOfArrayOfFaturaBM94PaM9" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AboneSozlesmeListesi">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="TesisatNo" type="xs:long" />
+            <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/DicleServiceBus" minOccurs="0" name="Sirket" type="q15:SirketTipi" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AboneSozlesmeListesiResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/DicleServiceBus" minOccurs="0" name="AboneSozlesmeListesiResult" nillable="true" type="q16:GenericReturnOfArrayOfAboneSozlesmeOzetBM94PaM9" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="PanoAboneListesi">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="TesisatNo" nillable="true" type="xs:long" />
+            <xs:element minOccurs="0" name="SayacNo" nillable="true" type="xs:long" />
+            <xs:element minOccurs="0" name="SayacMarka" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="PanoAboneListesiResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/DicleServiceBus" minOccurs="0" name="PanoAboneListesiResult" nillable="true" type="q17:GenericReturnOfArrayOfAboneOzetBilgiBM94PaM9" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="TrafoListesi">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ilKodu" type="xs:int" />
+            <xs:element minOccurs="0" name="ilceKodu" type="xs:int" />
+            <xs:element minOccurs="0" name="PageSize" type="xs:int" />
+            <xs:element minOccurs="0" name="PageNumber" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="TrafoListesiResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/DicleServiceBus" minOccurs="0" name="TrafoListesiResult" nillable="true" type="q18:GenericReturnOfArrayOfTrafoOzetBilgiBM94PaM9" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="PanoModemListesi">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ilKodu" type="xs:int" />
+            <xs:element minOccurs="0" name="ilceKodu" type="xs:int" />
+            <xs:element minOccurs="0" name="TrafoId" nillable="true" type="xs:long" />
+            <xs:element minOccurs="0" name="PageSize" type="xs:int" />
+            <xs:element minOccurs="0" name="PageNumber" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="PanoModemListesiResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/DicleServiceBus" minOccurs="0" name="PanoModemListesiResult" nillable="true" type="q19:GenericReturnOfArrayOfPanoModemOzetBilgiBM94PaM9" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="PanoModemDetay">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ModemNo" type="xs:long" />
+            <xs:element minOccurs="0" name="ModemMarka" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="PanoModemDetayResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/DicleServiceBus" minOccurs="0" name="PanoModemDetayResult" nillable="true" type="q20:GenericReturnOfPanoModemOzetBilgiBM94PaM9" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DicleServiceBus" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DicleServiceBus" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" />
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xs:complexType name="GenericReturnOfboolean">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="GenericReturnOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/DicleServiceBus" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+            </GenericType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Data" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ErrorCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ErrorDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RecordCount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GenericReturnOfboolean" nillable="true" type="tns:GenericReturnOfboolean" />
+      <xs:simpleType name="SayacAramaTipi">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Hicbiri" />
+          <xs:enumeration value="TesisatNo" />
+          <xs:enumeration value="SayacNo" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="SayacAramaTipi" nillable="true" type="tns:SayacAramaTipi" />
+      <xs:complexType name="GenericReturnOfArrayOfSayacOzetBilgiBM94PaM9">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="GenericReturnOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/DicleServiceBus" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="ArrayOfSayacOzetBilgi" Namespace="http://schemas.datacontract.org/2004/07/DicleServiceBus" />
+            </GenericType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Data" nillable="true" type="tns:ArrayOfSayacOzetBilgi" />
+          <xs:element minOccurs="0" name="ErrorCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ErrorDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RecordCount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GenericReturnOfArrayOfSayacOzetBilgiBM94PaM9" nillable="true" type="tns:GenericReturnOfArrayOfSayacOzetBilgiBM94PaM9" />
+      <xs:complexType name="ArrayOfSayacOzetBilgi">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="SayacOzetBilgi" nillable="true" type="tns:SayacOzetBilgi" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfSayacOzetBilgi" nillable="true" type="tns:ArrayOfSayacOzetBilgi" />
+      <xs:complexType name="SayacOzetBilgi">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DamgaTarihi" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="KayitTarihi" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="SayacMarka" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SayacNo" type="xs:decimal" />
+          <xs:element minOccurs="0" name="SokulmeTarihi" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="TakilmaTarihi" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="TesisatNo" type="xs:decimal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="SayacOzetBilgi" nillable="true" type="tns:SayacOzetBilgi" />
+      <xs:complexType name="GenericReturnOfSayacDetayBilgiBM94PaM9">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="GenericReturnOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/DicleServiceBus" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="SayacDetayBilgi" Namespace="http://schemas.datacontract.org/2004/07/DicleServiceBus" />
+            </GenericType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Data" nillable="true" type="tns:SayacDetayBilgi" />
+          <xs:element minOccurs="0" name="ErrorCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ErrorDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RecordCount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GenericReturnOfSayacDetayBilgiBM94PaM9" nillable="true" type="tns:GenericReturnOfSayacDetayBilgiBM94PaM9" />
+      <xs:complexType name="SayacDetayBilgi">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:SayacOzetBilgi">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="Adres" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="Amperaj" nillable="true" type="xs:decimal" />
+              <xs:element minOccurs="0" name="Carpan" nillable="true" type="xs:decimal" />
+              <xs:element minOccurs="0" name="Dijit" nillable="true" type="xs:decimal" />
+              <xs:element minOccurs="0" name="FazSayisi" nillable="true" type="xs:decimal" />
+              <xs:element minOccurs="0" name="FazSayisiAdi" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="ImalYili" nillable="true" type="xs:decimal" />
+              <xs:element minOccurs="0" name="IsletmeKodu" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="KimlikNo" nillable="true" type="xs:decimal" />
+              <xs:element minOccurs="0" name="SayacSekilAdi" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="SayacSekilKodu" nillable="true" type="xs:decimal" />
+              <xs:element minOccurs="0" name="SayacTuru" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="SokenPersonelAd" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="SokenPersonelKod" nillable="true" type="xs:decimal" />
+              <xs:element minOccurs="0" name="SokulmeDonem" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="SokulmeNedeni" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="SonEndeks" nillable="true" type="xs:decimal" />
+              <xs:element minOccurs="0" name="Unvan" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="Voltaj" nillable="true" type="xs:decimal" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="SayacDetayBilgi" nillable="true" type="tns:SayacDetayBilgi" />
+      <xs:complexType name="SokulmusSayacOrder">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderField" nillable="true" type="tns:OrderField" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="SokulmusSayacOrder" nillable="true" type="tns:SokulmusSayacOrder" />
+      <xs:complexType name="OrderField">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FieldName" nillable="true" type="xs:anyType" />
+          <xs:element minOccurs="0" name="Sort" type="tns:OrderDirection" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="OrderField" nillable="true" type="tns:OrderField" />
+      <xs:simpleType name="OrderDirection">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="ASC" />
+          <xs:enumeration value="DESC" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="OrderDirection" nillable="true" type="tns:OrderDirection" />
+      <xs:simpleType name="SokulmusSayac.OrderFields">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="RowNum" />
+          <xs:enumeration value="SayacNo" />
+          <xs:enumeration value="TesisatNo" />
+          <xs:enumeration value="IsletmeKodu" />
+          <xs:enumeration value="SayacMarka" />
+          <xs:enumeration value="TakilmaTarihi" />
+          <xs:enumeration value="SokulmeTarihi" />
+          <xs:enumeration value="KayitTarihi" />
+          <xs:enumeration value="SokenPersonelKodu" />
+          <xs:enumeration value="SokulmeNedeni" />
+          <xs:enumeration value="SonEndeks" />
+          <xs:enumeration value="Unvan" />
+          <xs:enumeration value="Adres" />
+          <xs:enumeration value="ImalYili" />
+          <xs:enumeration value="SokulmeDonemi" />
+          <xs:enumeration value="AmAmperaj" />
+          <xs:enumeration value="Voltaj" />
+          <xs:enumeration value="Dijit" />
+          <xs:enumeration value="SayacSekilKodu" />
+          <xs:enumeration value="SayacSekilAdi" />
+          <xs:enumeration value="FazSayisi" />
+          <xs:enumeration value="FazSayisiAdi" />
+          <xs:enumeration value="SayacTuru" />
+          <xs:enumeration value="Carpan" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="SokulmusSayac.OrderFields" nillable="true" type="tns:SokulmusSayac.OrderFields" />
+      <xs:complexType name="GenericReturnOfArrayOfSokulmusSayacBM94PaM9">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="GenericReturnOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/DicleServiceBus" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="ArrayOfSokulmusSayac" Namespace="http://schemas.datacontract.org/2004/07/DicleServiceBus" />
+            </GenericType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Data" nillable="true" type="tns:ArrayOfSokulmusSayac" />
+          <xs:element minOccurs="0" name="ErrorCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ErrorDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RecordCount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GenericReturnOfArrayOfSokulmusSayacBM94PaM9" nillable="true" type="tns:GenericReturnOfArrayOfSokulmusSayacBM94PaM9" />
+      <xs:complexType name="ArrayOfSokulmusSayac">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="SokulmusSayac" nillable="true" type="tns:SokulmusSayac" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfSokulmusSayac" nillable="true" type="tns:ArrayOfSokulmusSayac" />
+      <xs:complexType name="SokulmusSayac">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Adres" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Amperaj" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Carpan" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="DamgaTarihi" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Dijit" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="FazSayisi" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="FazSayisiAdi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ImalYili" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="IsletmeKodu" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KayitTarihi" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="RowNum" type="xs:decimal" />
+          <xs:element minOccurs="0" name="SayacMarka" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SayacNo" type="xs:decimal" />
+          <xs:element minOccurs="0" name="SayacSekilAdi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SayacSekilKodu" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="SayacTuru" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SokenPersonel" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SokenPersonelKodu" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="SokulmeDonemi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SokulmeNedeni" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SokulmeTarihi" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="SonEndeks" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TakilmaTarihi" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="TesisatNo" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Unvan" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Voltaj" nillable="true" type="xs:decimal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="SokulmusSayac" nillable="true" type="tns:SokulmusSayac" />
+      <xs:complexType name="GenericReturnOfArrayOfKeyValuePairOfintstringR8RmUPp7">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="GenericReturnOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/DicleServiceBus" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="ArrayOfKeyValuePairOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic">
+                <GenericParameter Name="int" Namespace="http://www.w3.org/2001/XMLSchema" />
+                <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+              </GenericParameter>
+            </GenericType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.Collections.Generic" minOccurs="0" name="Data" nillable="true" type="q1:ArrayOfKeyValuePairOfintstring" />
+          <xs:element minOccurs="0" name="ErrorCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ErrorDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RecordCount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GenericReturnOfArrayOfKeyValuePairOfintstringR8RmUPp7" nillable="true" type="tns:GenericReturnOfArrayOfKeyValuePairOfintstringR8RmUPp7" />
+      <xs:complexType name="GenericReturnOfArrayOfKeyValuePairOfstringstringR8RmUPp7">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="GenericReturnOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/DicleServiceBus" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="ArrayOfKeyValuePairOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic">
+                <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+                <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+              </GenericParameter>
+            </GenericType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/System.Collections.Generic" minOccurs="0" name="Data" nillable="true" type="q2:ArrayOfKeyValuePairOfstringstring" />
+          <xs:element minOccurs="0" name="ErrorCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ErrorDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RecordCount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GenericReturnOfArrayOfKeyValuePairOfstringstringR8RmUPp7" nillable="true" type="tns:GenericReturnOfArrayOfKeyValuePairOfstringstringR8RmUPp7" />
+      <xs:complexType name="GenericReturnOfKeyValuePairOfstringstringR8RmUPp7">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="GenericReturnOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/DicleServiceBus" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="KeyValuePairOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic">
+                <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+                <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+              </GenericParameter>
+            </GenericType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/System.Collections.Generic" minOccurs="0" name="Data" type="q3:KeyValuePairOfstringstring" />
+          <xs:element minOccurs="0" name="ErrorCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ErrorDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RecordCount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GenericReturnOfKeyValuePairOfstringstringR8RmUPp7" nillable="true" type="tns:GenericReturnOfKeyValuePairOfstringstringR8RmUPp7" />
+      <xs:complexType name="GenericReturnOfAboneOzetBilgiBM94PaM9">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="GenericReturnOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/DicleServiceBus" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="AboneOzetBilgi" Namespace="http://schemas.datacontract.org/2004/07/DicleServiceBus" />
+            </GenericType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Data" nillable="true" type="tns:AboneOzetBilgi" />
+          <xs:element minOccurs="0" name="ErrorCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ErrorDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RecordCount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GenericReturnOfAboneOzetBilgiBM94PaM9" nillable="true" type="tns:GenericReturnOfAboneOzetBilgiBM94PaM9" />
+      <xs:complexType name="AboneOzetBilgi">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Adres" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HizmetDurumu" type="tns:HizmetDurumu" />
+          <xs:element minOccurs="0" name="IsletmeAdi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsletmeBolgeAdi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsletmeBolgeKodu" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="IsletmeKodu" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ModemMarka" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ModemNo" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="SayacMarka" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SayacNo" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TcKimlikNo" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="TesisatNo" type="xs:long" />
+          <xs:element minOccurs="0" name="Unvan" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VergiNo" nillable="true" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="AboneOzetBilgi" nillable="true" type="tns:AboneOzetBilgi" />
+      <xs:simpleType name="HizmetDurumu">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Bilinmiyor">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Acik">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Kapali">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Iptal">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="HizmetDurumu" nillable="true" type="tns:HizmetDurumu" />
+      <xs:complexType name="GenericReturnOfArrayOfTupleOfdateTimestring5F2dSckg">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="GenericReturnOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/DicleServiceBus" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="ArrayOfTupleOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System">
+                <GenericParameter Name="dateTime" Namespace="http://www.w3.org/2001/XMLSchema" />
+                <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+              </GenericParameter>
+            </GenericType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="Data" nillable="true" type="q4:ArrayOfTupleOfdateTimestring" />
+          <xs:element minOccurs="0" name="ErrorCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ErrorDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RecordCount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GenericReturnOfArrayOfTupleOfdateTimestring5F2dSckg" nillable="true" type="tns:GenericReturnOfArrayOfTupleOfdateTimestring5F2dSckg" />
+      <xs:complexType name="GenericReturnOfArrayOfFaturaBM94PaM9">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="GenericReturnOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/DicleServiceBus" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="ArrayOfFatura" Namespace="http://schemas.datacontract.org/2004/07/DicleServiceBus" />
+            </GenericType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Data" nillable="true" type="tns:ArrayOfFatura" />
+          <xs:element minOccurs="0" name="ErrorCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ErrorDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RecordCount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GenericReturnOfArrayOfFaturaBM94PaM9" nillable="true" type="tns:GenericReturnOfArrayOfFaturaBM94PaM9" />
+      <xs:complexType name="ArrayOfFatura">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Fatura" nillable="true" type="tns:Fatura" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfFatura" nillable="true" type="tns:ArrayOfFatura" />
+      <xs:complexType name="Fatura">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FaturaTarihi" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="TesisatNo" type="xs:long" />
+          <xs:element minOccurs="0" name="ToplamTutar" type="xs:decimal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Fatura" nillable="true" type="tns:Fatura" />
+      <xs:simpleType name="SirketTipi">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Hicbiri">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Tumu">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Dagitim">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Perakende">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="SirketTipi" nillable="true" type="tns:SirketTipi" />
+      <xs:complexType name="GenericReturnOfArrayOfAboneSozlesmeOzetBM94PaM9">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="GenericReturnOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/DicleServiceBus" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="ArrayOfAboneSozlesmeOzet" Namespace="http://schemas.datacontract.org/2004/07/DicleServiceBus" />
+            </GenericType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Data" nillable="true" type="tns:ArrayOfAboneSozlesmeOzet" />
+          <xs:element minOccurs="0" name="ErrorCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ErrorDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RecordCount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GenericReturnOfArrayOfAboneSozlesmeOzetBM94PaM9" nillable="true" type="tns:GenericReturnOfArrayOfAboneSozlesmeOzetBM94PaM9" />
+      <xs:complexType name="ArrayOfAboneSozlesmeOzet">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="AboneSozlesmeOzet" nillable="true" type="tns:AboneSozlesmeOzet" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfAboneSozlesmeOzet" nillable="true" type="tns:ArrayOfAboneSozlesmeOzet" />
+      <xs:complexType name="AboneSozlesmeOzet">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="SozlesmeGucu" type="xs:int" />
+          <xs:element minOccurs="0" name="SozlesmeNo" type="xs:long" />
+          <xs:element minOccurs="0" name="SozlesmeSirketi" type="tns:SirketTipi" />
+          <xs:element minOccurs="0" name="SozlesmeTarihi" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="SozlesmeTipAdi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SozlesmeTipKodu" type="xs:int" />
+          <xs:element minOccurs="0" name="TarifeAdi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TesisatNo" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="AboneSozlesmeOzet" nillable="true" type="tns:AboneSozlesmeOzet" />
+      <xs:complexType name="GenericReturnOfArrayOfAboneOzetBilgiBM94PaM9">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="GenericReturnOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/DicleServiceBus" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="ArrayOfAboneOzetBilgi" Namespace="http://schemas.datacontract.org/2004/07/DicleServiceBus" />
+            </GenericType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Data" nillable="true" type="tns:ArrayOfAboneOzetBilgi" />
+          <xs:element minOccurs="0" name="ErrorCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ErrorDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RecordCount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GenericReturnOfArrayOfAboneOzetBilgiBM94PaM9" nillable="true" type="tns:GenericReturnOfArrayOfAboneOzetBilgiBM94PaM9" />
+      <xs:complexType name="ArrayOfAboneOzetBilgi">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="AboneOzetBilgi" nillable="true" type="tns:AboneOzetBilgi" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfAboneOzetBilgi" nillable="true" type="tns:ArrayOfAboneOzetBilgi" />
+      <xs:complexType name="GenericReturnOfArrayOfTrafoOzetBilgiBM94PaM9">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="GenericReturnOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/DicleServiceBus" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="ArrayOfTrafoOzetBilgi" Namespace="http://schemas.datacontract.org/2004/07/DicleServiceBus" />
+            </GenericType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Data" nillable="true" type="tns:ArrayOfTrafoOzetBilgi" />
+          <xs:element minOccurs="0" name="ErrorCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ErrorDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RecordCount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GenericReturnOfArrayOfTrafoOzetBilgiBM94PaM9" nillable="true" type="tns:GenericReturnOfArrayOfTrafoOzetBilgiBM94PaM9" />
+      <xs:complexType name="ArrayOfTrafoOzetBilgi">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="TrafoOzetBilgi" nillable="true" type="tns:TrafoOzetBilgi" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfTrafoOzetBilgi" nillable="true" type="tns:ArrayOfTrafoOzetBilgi" />
+      <xs:complexType name="TrafoOzetBilgi">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IlAdi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IlKodu" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="IlceAdi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IlceKodu" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="KoordinatX" nillable="true" type="xs:float" />
+          <xs:element minOccurs="0" name="KoordinatY" nillable="true" type="xs:float" />
+          <xs:element minOccurs="0" name="TrafoKodu" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TrafoNo" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="TrafoOzetBilgi" nillable="true" type="tns:TrafoOzetBilgi" />
+      <xs:complexType name="GenericReturnOfArrayOfPanoModemOzetBilgiBM94PaM9">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="GenericReturnOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/DicleServiceBus" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="ArrayOfPanoModemOzetBilgi" Namespace="http://schemas.datacontract.org/2004/07/DicleServiceBus" />
+            </GenericType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Data" nillable="true" type="tns:ArrayOfPanoModemOzetBilgi" />
+          <xs:element minOccurs="0" name="ErrorCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ErrorDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RecordCount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GenericReturnOfArrayOfPanoModemOzetBilgiBM94PaM9" nillable="true" type="tns:GenericReturnOfArrayOfPanoModemOzetBilgiBM94PaM9" />
+      <xs:complexType name="ArrayOfPanoModemOzetBilgi">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="PanoModemOzetBilgi" nillable="true" type="tns:PanoModemOzetBilgi" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfPanoModemOzetBilgi" nillable="true" type="tns:ArrayOfPanoModemOzetBilgi" />
+      <xs:complexType name="PanoModemOzetBilgi">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IlAdi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IlKodu" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="IlceAdi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IlceKodu" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="KoordinatX" nillable="true" type="xs:float" />
+          <xs:element minOccurs="0" name="KoordinatY" nillable="true" type="xs:float" />
+          <xs:element minOccurs="0" name="ModemMarka" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ModemNo" type="xs:long" />
+          <xs:element minOccurs="0" name="TesisatSayisi" type="xs:int" />
+          <xs:element minOccurs="0" name="TrafoKodu" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TrafoNo" nillable="true" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="PanoModemOzetBilgi" nillable="true" type="tns:PanoModemOzetBilgi" />
+      <xs:complexType name="GenericReturnOfPanoModemOzetBilgiBM94PaM9">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="GenericReturnOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/DicleServiceBus" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="PanoModemOzetBilgi" Namespace="http://schemas.datacontract.org/2004/07/DicleServiceBus" />
+            </GenericType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Data" nillable="true" type="tns:PanoModemOzetBilgi" />
+          <xs:element minOccurs="0" name="ErrorCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ErrorDesc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RecordCount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GenericReturnOfPanoModemOzetBilgiBM94PaM9" nillable="true" type="tns:GenericReturnOfPanoModemOzetBilgiBM94PaM9" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/System.Collections.Generic" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xs:complexType name="ArrayOfKeyValuePairOfintstring">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValuePairOfintstring" type="tns:KeyValuePairOfintstring" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfKeyValuePairOfintstring" nillable="true" type="tns:ArrayOfKeyValuePairOfintstring" />
+      <xs:complexType name="KeyValuePairOfintstring">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="KeyValuePairOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="int" Namespace="http://www.w3.org/2001/XMLSchema" />
+              <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+            </GenericType>
+            <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="key" type="xs:int" />
+          <xs:element name="value" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="KeyValuePairOfintstring" nillable="true" type="tns:KeyValuePairOfintstring" />
+      <xs:complexType name="ArrayOfKeyValuePairOfstringstring">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValuePairOfstringstring" type="tns:KeyValuePairOfstringstring" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfKeyValuePairOfstringstring" nillable="true" type="tns:ArrayOfKeyValuePairOfstringstring" />
+      <xs:complexType name="KeyValuePairOfstringstring">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="KeyValuePairOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+              <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+            </GenericType>
+            <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="key" nillable="true" type="xs:string" />
+          <xs:element name="value" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="KeyValuePairOfstringstring" nillable="true" type="tns:KeyValuePairOfstringstring" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/System" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/System" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfTupleOfdateTimestring">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="TupleOfdateTimestring" nillable="true" type="tns:TupleOfdateTimestring" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfTupleOfdateTimestring" nillable="true" type="tns:ArrayOfTupleOfdateTimestring" />
+      <xs:complexType name="TupleOfdateTimestring">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="TupleOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="dateTime" Namespace="http://www.w3.org/2001/XMLSchema" />
+              <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+            </GenericType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="m_Item1" type="xs:dateTime" />
+          <xs:element name="m_Item2" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="TupleOfdateTimestring" nillable="true" type="tns:TupleOfdateTimestring" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="DEDASService_LDAPValidate_InputMessage">
+    <wsdl:part name="parameters" element="tns:LDAPValidate" />
+  </wsdl:message>
+  <wsdl:message name="DEDASService_LDAPValidate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LDAPValidateResponse" />
+  </wsdl:message>
+  <wsdl:message name="DEDASService_SayacArama_InputMessage">
+    <wsdl:part name="parameters" element="tns:SayacArama" />
+  </wsdl:message>
+  <wsdl:message name="DEDASService_SayacArama_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SayacAramaResponse" />
+  </wsdl:message>
+  <wsdl:message name="DEDASService_SayacDetay_InputMessage">
+    <wsdl:part name="parameters" element="tns:SayacDetay" />
+  </wsdl:message>
+  <wsdl:message name="DEDASService_SayacDetay_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SayacDetayResponse" />
+  </wsdl:message>
+  <wsdl:message name="DEDASService_SokulenSayacListesi_InputMessage">
+    <wsdl:part name="parameters" element="tns:SokulenSayacListesi" />
+  </wsdl:message>
+  <wsdl:message name="DEDASService_SokulenSayacListesi_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SokulenSayacListesiResponse" />
+  </wsdl:message>
+  <wsdl:message name="DEDASService_IsletmeListesi_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsletmeListesi" />
+  </wsdl:message>
+  <wsdl:message name="DEDASService_IsletmeListesi_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsletmeListesiResponse" />
+  </wsdl:message>
+  <wsdl:message name="DEDASService_IsletmeBolgeListesi_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsletmeBolgeListesi" />
+  </wsdl:message>
+  <wsdl:message name="DEDASService_IsletmeBolgeListesi_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsletmeBolgeListesiResponse" />
+  </wsdl:message>
+  <wsdl:message name="DEDASService_SayacMarkaListesi_InputMessage">
+    <wsdl:part name="parameters" element="tns:SayacMarkaListesi" />
+  </wsdl:message>
+  <wsdl:message name="DEDASService_SayacMarkaListesi_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SayacMarkaListesiResponse" />
+  </wsdl:message>
+  <wsdl:message name="DEDASService_SayacMarka_InputMessage">
+    <wsdl:part name="parameters" element="tns:SayacMarka" />
+  </wsdl:message>
+  <wsdl:message name="DEDASService_SayacMarka_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SayacMarkaResponse" />
+  </wsdl:message>
+  <wsdl:message name="DEDASService_AboneArama_InputMessage">
+    <wsdl:part name="parameters" element="tns:AboneArama" />
+  </wsdl:message>
+  <wsdl:message name="DEDASService_AboneArama_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AboneAramaResponse" />
+  </wsdl:message>
+  <wsdl:message name="DEDASService_GecmisAboneUnvan_InputMessage">
+    <wsdl:part name="parameters" element="tns:GecmisAboneUnvan" />
+  </wsdl:message>
+  <wsdl:message name="DEDASService_GecmisAboneUnvan_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GecmisAboneUnvanResponse" />
+  </wsdl:message>
+  <wsdl:message name="DEDASService_AboneBorcListesi_InputMessage">
+    <wsdl:part name="parameters" element="tns:AboneBorcListesi" />
+  </wsdl:message>
+  <wsdl:message name="DEDASService_AboneBorcListesi_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AboneBorcListesiResponse" />
+  </wsdl:message>
+  <wsdl:message name="DEDASService_AboneSozlesmeListesi_InputMessage">
+    <wsdl:part name="parameters" element="tns:AboneSozlesmeListesi" />
+  </wsdl:message>
+  <wsdl:message name="DEDASService_AboneSozlesmeListesi_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AboneSozlesmeListesiResponse" />
+  </wsdl:message>
+  <wsdl:message name="DEDASService_PanoAboneListesi_InputMessage">
+    <wsdl:part name="parameters" element="tns:PanoAboneListesi" />
+  </wsdl:message>
+  <wsdl:message name="DEDASService_PanoAboneListesi_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PanoAboneListesiResponse" />
+  </wsdl:message>
+  <wsdl:message name="DEDASService_TrafoListesi_InputMessage">
+    <wsdl:part name="parameters" element="tns:TrafoListesi" />
+  </wsdl:message>
+  <wsdl:message name="DEDASService_TrafoListesi_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TrafoListesiResponse" />
+  </wsdl:message>
+  <wsdl:message name="DEDASService_PanoModemListesi_InputMessage">
+    <wsdl:part name="parameters" element="tns:PanoModemListesi" />
+  </wsdl:message>
+  <wsdl:message name="DEDASService_PanoModemListesi_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PanoModemListesiResponse" />
+  </wsdl:message>
+  <wsdl:message name="DEDASService_PanoModemDetay_InputMessage">
+    <wsdl:part name="parameters" element="tns:PanoModemDetay" />
+  </wsdl:message>
+  <wsdl:message name="DEDASService_PanoModemDetay_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PanoModemDetayResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DEDASService">
+    <wsdl:operation name="LDAPValidate">
+      <wsdl:input wsaw:Action="http://tempuri.org/DEDASService/LDAPValidate" message="tns:DEDASService_LDAPValidate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DEDASService/LDAPValidateResponse" message="tns:DEDASService_LDAPValidate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SayacArama">
+      <wsdl:input wsaw:Action="http://tempuri.org/DEDASService/SayacArama" message="tns:DEDASService_SayacArama_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DEDASService/SayacAramaResponse" message="tns:DEDASService_SayacArama_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SayacDetay">
+      <wsdl:input wsaw:Action="http://tempuri.org/DEDASService/SayacDetay" message="tns:DEDASService_SayacDetay_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DEDASService/SayacDetayResponse" message="tns:DEDASService_SayacDetay_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SokulenSayacListesi">
+      <wsdl:input wsaw:Action="http://tempuri.org/DEDASService/SokulenSayacListesi" message="tns:DEDASService_SokulenSayacListesi_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DEDASService/SokulenSayacListesiResponse" message="tns:DEDASService_SokulenSayacListesi_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsletmeListesi">
+      <wsdl:input wsaw:Action="http://tempuri.org/DEDASService/IsletmeListesi" message="tns:DEDASService_IsletmeListesi_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DEDASService/IsletmeListesiResponse" message="tns:DEDASService_IsletmeListesi_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsletmeBolgeListesi">
+      <wsdl:input wsaw:Action="http://tempuri.org/DEDASService/IsletmeBolgeListesi" message="tns:DEDASService_IsletmeBolgeListesi_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DEDASService/IsletmeBolgeListesiResponse" message="tns:DEDASService_IsletmeBolgeListesi_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SayacMarkaListesi">
+      <wsdl:input wsaw:Action="http://tempuri.org/DEDASService/SayacMarkaListesi" message="tns:DEDASService_SayacMarkaListesi_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DEDASService/SayacMarkaListesiResponse" message="tns:DEDASService_SayacMarkaListesi_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SayacMarka">
+      <wsdl:input wsaw:Action="http://tempuri.org/DEDASService/SayacMarka" message="tns:DEDASService_SayacMarka_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DEDASService/SayacMarkaResponse" message="tns:DEDASService_SayacMarka_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AboneArama">
+      <wsdl:input wsaw:Action="http://tempuri.org/DEDASService/AboneArama" message="tns:DEDASService_AboneArama_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DEDASService/AboneAramaResponse" message="tns:DEDASService_AboneArama_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GecmisAboneUnvan">
+      <wsdl:input wsaw:Action="http://tempuri.org/DEDASService/GecmisAboneUnvan" message="tns:DEDASService_GecmisAboneUnvan_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DEDASService/GecmisAboneUnvanResponse" message="tns:DEDASService_GecmisAboneUnvan_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AboneBorcListesi">
+      <wsdl:input wsaw:Action="http://tempuri.org/DEDASService/AboneBorcListesi" message="tns:DEDASService_AboneBorcListesi_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DEDASService/AboneBorcListesiResponse" message="tns:DEDASService_AboneBorcListesi_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AboneSozlesmeListesi">
+      <wsdl:input wsaw:Action="http://tempuri.org/DEDASService/AboneSozlesmeListesi" message="tns:DEDASService_AboneSozlesmeListesi_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DEDASService/AboneSozlesmeListesiResponse" message="tns:DEDASService_AboneSozlesmeListesi_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PanoAboneListesi">
+      <wsdl:input wsaw:Action="http://tempuri.org/DEDASService/PanoAboneListesi" message="tns:DEDASService_PanoAboneListesi_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DEDASService/PanoAboneListesiResponse" message="tns:DEDASService_PanoAboneListesi_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TrafoListesi">
+      <wsdl:input wsaw:Action="http://tempuri.org/DEDASService/TrafoListesi" message="tns:DEDASService_TrafoListesi_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DEDASService/TrafoListesiResponse" message="tns:DEDASService_TrafoListesi_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PanoModemListesi">
+      <wsdl:input wsaw:Action="http://tempuri.org/DEDASService/PanoModemListesi" message="tns:DEDASService_PanoModemListesi_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DEDASService/PanoModemListesiResponse" message="tns:DEDASService_PanoModemListesi_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PanoModemDetay">
+      <wsdl:input wsaw:Action="http://tempuri.org/DEDASService/PanoModemDetay" message="tns:DEDASService_PanoModemDetay_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/DEDASService/PanoModemDetayResponse" message="tns:DEDASService_PanoModemDetay_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="basicEndpoint" type="tns:DEDASService">
+    <wsp:PolicyReference URI="#basicEndpoint_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LDAPValidate">
+      <soap:operation soapAction="http://tempuri.org/DEDASService/LDAPValidate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SayacArama">
+      <soap:operation soapAction="http://tempuri.org/DEDASService/SayacArama" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SayacDetay">
+      <soap:operation soapAction="http://tempuri.org/DEDASService/SayacDetay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SokulenSayacListesi">
+      <soap:operation soapAction="http://tempuri.org/DEDASService/SokulenSayacListesi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsletmeListesi">
+      <soap:operation soapAction="http://tempuri.org/DEDASService/IsletmeListesi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsletmeBolgeListesi">
+      <soap:operation soapAction="http://tempuri.org/DEDASService/IsletmeBolgeListesi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SayacMarkaListesi">
+      <soap:operation soapAction="http://tempuri.org/DEDASService/SayacMarkaListesi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SayacMarka">
+      <soap:operation soapAction="http://tempuri.org/DEDASService/SayacMarka" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AboneArama">
+      <soap:operation soapAction="http://tempuri.org/DEDASService/AboneArama" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GecmisAboneUnvan">
+      <soap:operation soapAction="http://tempuri.org/DEDASService/GecmisAboneUnvan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AboneBorcListesi">
+      <soap:operation soapAction="http://tempuri.org/DEDASService/AboneBorcListesi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AboneSozlesmeListesi">
+      <soap:operation soapAction="http://tempuri.org/DEDASService/AboneSozlesmeListesi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PanoAboneListesi">
+      <soap:operation soapAction="http://tempuri.org/DEDASService/PanoAboneListesi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TrafoListesi">
+      <soap:operation soapAction="http://tempuri.org/DEDASService/TrafoListesi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PanoModemListesi">
+      <soap:operation soapAction="http://tempuri.org/DEDASService/PanoModemListesi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PanoModemDetay">
+      <soap:operation soapAction="http://tempuri.org/DEDASService/PanoModemDetay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DEDASService">
+    <wsdl:port name="basicEndpoint" binding="tns:basicEndpoint">
+      <soap:address location="https://servicebus.dedas.com.tr:8443/DEDASService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

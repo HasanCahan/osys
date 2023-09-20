@@ -1,0 +1,524 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FD7E24D4-83DA-4DA0-9AB2-A0715C09EC5F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OlcuYonetimSistemi</RootNamespace>
+    <AssemblyName>OlcuYonetimSistemi</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\.nuget\packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\.nuget\packages\EnterpriseLibrary.Data.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-datetimepicker.css" />
+    <Content Include="Content\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\images\active.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\bg.jpg" />
+    <Content Include="Content\images\passive.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\site.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="Admin\UserList.aspx" />
+    <Content Include="Management\ManagementEDW\Default.aspx" />
+    <Content Include="Management\ManagementEDW\FiderAcmaList.aspx" />
+    <Content Include="Management\ManagementEDW\FiderIdDegis.aspx" />
+    <Content Include="Management\ManagementEDW\FiderTransformerCenter.aspx" />
+    <Content Include="Management\ManagementEDW\StatusHistoryList.aspx" />
+    <Content Include="Management\ManagementEDW\FormulationList.aspx" />
+    <Content Include="Management\ManagementEDW\FiderList.aspx" />
+    <Content Include="Management\ManagementEDW\TransformerCenterList.aspx" />
+    <Content Include="Management\ManagementEDW\TransformerTypeList.aspx" />
+    <Content Include="Management\ManagementEDW\StatusList.aspx" />
+    <Content Include="Management\ManagementEDW\TransformerList.aspx" />
+    <Content Include="Management\CalcParamAddEdit.aspx" />
+    <Content Include="Management\Default.aspx" />
+    <Content Include="Management\ReadoutList.aspx" />
+    <Content Include="Management\MeterPointList.aspx" />
+    <Content Include="Management\MeteredAreaList.aspx" />
+    <Content Include="Management\Management.Master" />
+    <Content Include="Management\ucAlert.ascx" />
+    <Content Include="Management\ucPager.ascx" />
+    <Content Include="packages.config" />
+    <EntityDeploy Include="Models\DataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Management\ModalDialog.Master" />
+    <Content Include="Models\DataModelZone.xsc">
+      <DependentUpon>DataModelZone.xsd</DependentUpon>
+    </Content>
+    <Content Include="Management\ManagementEDW\Management.Master" />
+    <Content Include="Management\ManagementEDW\ModalDialog.Master" />
+    <None Include="Models\DataModelZone.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataModelZone.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Models\DataModelZone.xss">
+      <DependentUpon>DataModelZone.xsd</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\Publish.pubxml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\WSDEDAS\DEDASService.wsdl" />
+    <Content Include="Scripts\bootstrap-datetimepicker.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
+    <Content Include="Scripts\jquery.bootstrap-growl.min.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Service References\WSDEDAS\OlcuYonetimSistemi.WSDEDAS.GenericReturnOfAboneOzetBilgiBM94PaM9.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\WSDEDAS\OlcuYonetimSistemi.WSDEDAS.GenericReturnOfArrayOfAboneOzetBilgiBM94PaM9.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\WSDEDAS\OlcuYonetimSistemi.WSDEDAS.GenericReturnOfArrayOfAboneSozlesmeOzetBM94PaM9.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\WSDEDAS\OlcuYonetimSistemi.WSDEDAS.GenericReturnOfArrayOfFaturaBM94PaM9.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\WSDEDAS\OlcuYonetimSistemi.WSDEDAS.GenericReturnOfArrayOfKeyValuePairOfintstringR8RmUPp7.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\WSDEDAS\OlcuYonetimSistemi.WSDEDAS.GenericReturnOfArrayOfKeyValuePairOfstringstringR8RmUPp7.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\WSDEDAS\OlcuYonetimSistemi.WSDEDAS.GenericReturnOfArrayOfPanoModemOzetBilgiBM94PaM9.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\WSDEDAS\OlcuYonetimSistemi.WSDEDAS.GenericReturnOfArrayOfSayacOzetBilgiBM94PaM9.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\WSDEDAS\OlcuYonetimSistemi.WSDEDAS.GenericReturnOfArrayOfSokulmusSayacBM94PaM9.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\WSDEDAS\OlcuYonetimSistemi.WSDEDAS.GenericReturnOfArrayOfTrafoOzetBilgiBM94PaM9.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\WSDEDAS\OlcuYonetimSistemi.WSDEDAS.GenericReturnOfArrayOfTupleOfdateTimestring5F2dSckg.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\WSDEDAS\OlcuYonetimSistemi.WSDEDAS.GenericReturnOfboolean.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\WSDEDAS\OlcuYonetimSistemi.WSDEDAS.GenericReturnOfKeyValuePairOfstringstringR8RmUPp7.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\WSDEDAS\OlcuYonetimSistemi.WSDEDAS.GenericReturnOfPanoModemOzetBilgiBM94PaM9.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\WSDEDAS\OlcuYonetimSistemi.WSDEDAS.GenericReturnOfSayacDetayBilgiBM94PaM9.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\dashboard.css" />
+    <Content Include="Content\ie10-viewport.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Management\EquipmentList.aspx" />
+    <Content Include="Management\ucSidebar.ascx" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <None Include="Service References\WSDEDAS\configuration91.svcinfo" />
+    <None Include="Service References\WSDEDAS\configuration.svcinfo" />
+    <None Include="Service References\WSDEDAS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Scripts\jquery-1.9.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\CustomMembership.cs" />
+    <Compile Include="Controllers\EDW\DataImport.cs" />
+    <Compile Include="Controllers\EDW\Device.cs" />
+    <Compile Include="Controllers\EDW\FiderIdDegisModel.cs" />
+    <Compile Include="Controllers\EDW\Formulation.cs" />
+    <Compile Include="Controllers\EDW\FiderAcma.cs" />
+    <Compile Include="Controllers\EDW\FiderConf.cs" />
+    <Compile Include="Controllers\EDW\StatusHistory.cs" />
+    <Compile Include="Controllers\EDW\Fider.cs" />
+    <Compile Include="Controllers\EDW\Transformer.cs" />
+    <Compile Include="Controllers\EDW\TransformerCenter.cs" />
+    <Compile Include="Controllers\EDW\Status.cs" />
+    <Compile Include="Controllers\EDW\TransformerCenterFider.cs" />
+    <Compile Include="Controllers\EDW\TransformerType.cs" />
+    <Compile Include="Controllers\EDW\User.cs" />
+    <Compile Include="Controllers\Readout.cs" />
+    <Compile Include="Controllers\CalcParam.cs" />
+    <Compile Include="Controllers\CityTown.cs" />
+    <Compile Include="Controllers\Extensions.cs" />
+    <Compile Include="Controllers\MeterPoint.cs" />
+    <Compile Include="Controllers\MeteredArea.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UserList.aspx.cs">
+      <DependentUpon>UserList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UserList.aspx.designer.cs">
+      <DependentUpon>UserList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Management\ManagementEDW\FiderAcmaList.aspx.cs">
+      <DependentUpon>FiderAcmaList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management\ManagementEDW\FiderAcmaList.aspx.designer.cs">
+      <DependentUpon>FiderAcmaList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Management\ManagementEDW\FiderIdDegis.aspx.cs">
+      <DependentUpon>FiderIdDegis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management\ManagementEDW\FiderIdDegis.aspx.designer.cs">
+      <DependentUpon>FiderIdDegis.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Management\ManagementEDW\FiderTransformerCenter.aspx.cs">
+      <DependentUpon>FiderTransformerCenter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management\ManagementEDW\FiderTransformerCenter.aspx.designer.cs">
+      <DependentUpon>FiderTransformerCenter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Management\ManagementEDW\StatusHistoryList.aspx.cs">
+      <DependentUpon>StatusHistoryList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management\ManagementEDW\StatusHistoryList.aspx.designer.cs">
+      <DependentUpon>StatusHistoryList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Management\ManagementEDW\FormulationList.aspx.cs">
+      <DependentUpon>FormulationList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management\ManagementEDW\FormulationList.aspx.designer.cs">
+      <DependentUpon>FormulationList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Management\ManagementEDW\FiderList.aspx.cs">
+      <DependentUpon>FiderList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management\ManagementEDW\FiderList.aspx.designer.cs">
+      <DependentUpon>FiderList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Management\ManagementEDW\TransformerCenterList.aspx.cs">
+      <DependentUpon>TransformerCenterList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management\ManagementEDW\TransformerCenterList.aspx.designer.cs">
+      <DependentUpon>TransformerCenterList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Management\ManagementEDW\TransformerTypeList.aspx.cs">
+      <DependentUpon>TransformerTypeList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management\ManagementEDW\TransformerTypeList.aspx.designer.cs">
+      <DependentUpon>TransformerTypeList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Management\ManagementEDW\WebUIHelpers.cs" />
+    <Compile Include="Models\Edw\EdwFider.cs" />
+    <Compile Include="Models\Edw\EdwFiderAcma.cs" />
+    <Compile Include="Models\Edw\Enums\ConsumptionType.cs" />
+    <Compile Include="Models\Edw\Enums\EnergyDirection.cs" />
+    <Compile Include="Models\Edw\Enums\EnumHelper.cs" />
+    <Compile Include="Models\Edw\Enums\InavitasIdType.cs" />
+    <Compile Include="Models\Edw\Enums\MeasurementType.cs" />
+    <Compile Include="Management\ManagementEDW\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management\ManagementEDW\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Management\ManagementEDW\Management.Master.cs">
+      <DependentUpon>Management.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management\ManagementEDW\Management.Master.designer.cs">
+      <DependentUpon>Management.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Management\ManagementEDW\StatusList.aspx.cs">
+      <DependentUpon>StatusList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management\ManagementEDW\StatusList.aspx.designer.cs">
+      <DependentUpon>StatusList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Management\ManagementEDW\ModalDialog.Master.cs">
+      <DependentUpon>ModalDialog.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management\ManagementEDW\ModalDialog.Master.designer.cs">
+      <DependentUpon>ModalDialog.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Management\ManagementEDW\TransformerList.aspx.cs">
+      <DependentUpon>TransformerList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management\ManagementEDW\TransformerList.aspx.designer.cs">
+      <DependentUpon>TransformerList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Management\CalcParamAddEdit.aspx.cs">
+      <DependentUpon>CalcParamAddEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management\CalcParamAddEdit.aspx.designer.cs">
+      <DependentUpon>CalcParamAddEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Management\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Management\ReadoutList.aspx.cs">
+      <DependentUpon>ReadoutList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management\ReadoutList.aspx.designer.cs">
+      <DependentUpon>ReadoutList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Management\ModalDialog.Master.cs">
+      <DependentUpon>ModalDialog.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management\ModalDialog.Master.designer.cs">
+      <DependentUpon>ModalDialog.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Management\MeterPointList.aspx.cs">
+      <DependentUpon>MeterPointList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management\MeterPointList.aspx.designer.cs">
+      <DependentUpon>MeterPointList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Management\MeteredAreaList.aspx.cs">
+      <DependentUpon>MeteredAreaList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management\MeteredAreaList.aspx.designer.cs">
+      <DependentUpon>MeteredAreaList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Management\EquipmentList.aspx.cs">
+      <DependentUpon>EquipmentList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management\EquipmentList.aspx.designer.cs">
+      <DependentUpon>EquipmentList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Management\Management.Master.cs">
+      <DependentUpon>Management.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management\Management.Master.designer.cs">
+      <DependentUpon>Management.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Management\ucAlert.ascx.cs">
+      <DependentUpon>ucAlert.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management\ucAlert.ascx.designer.cs">
+      <DependentUpon>ucAlert.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Management\ucPager.ascx.cs">
+      <DependentUpon>ucPager.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management\ucPager.ascx.designer.cs">
+      <DependentUpon>ucPager.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Management\ucSidebar.ascx.cs">
+      <DependentUpon>ucSidebar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management\ucSidebar.ascx.designer.cs">
+      <DependentUpon>ucSidebar.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Equipment.cs" />
+    <Compile Include="Controllers\Helper.cs" />
+    <Compile Include="Models\DataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataModelZone.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataModelZone.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Edw\EdwDevice.cs" />
+    <Compile Include="Models\Edw\EdwFormulation.cs" />
+    <Compile Include="Models\Edw\EdwStatus.cs" />
+    <Compile Include="Models\Edw\EdwStatusHistory.cs" />
+    <Compile Include="Models\Edw\EdwTransformer.cs" />
+    <Compile Include="Models\Edw\EdwTransformerCenter.cs" />
+    <Compile Include="Models\Edw\EdwTransformerType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WSDEDAS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\WSDEDAS\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>54583</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:54570/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

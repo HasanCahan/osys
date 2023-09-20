@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataModelZone" targetNamespace="http://tempuri.org/DataModelZone.xsd" xmlns:mstns="http://tempuri.org/DataModelZone.xsd" xmlns="http://tempuri.org/DataModelZone.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataModelZone" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataModelZone" msprop:Generator_UserDSName="DataModelZone">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="zone_tEquipment" msprop:Generator_TableClassName="zone_tEquipmentDataTable" msprop:Generator_TableVarName="tablezone_tEquipment" msprop:Generator_TablePropName="zone_tEquipment" msprop:Generator_RowDeletingName="zone_tEquipmentRowDeleting" msprop:Generator_RowChangingName="zone_tEquipmentRowChanging" msprop:Generator_RowEvHandlerName="zone_tEquipmentRowChangeEventHandler" msprop:Generator_RowDeletedName="zone_tEquipmentRowDeleted" msprop:Generator_UserTableName="zone_tEquipment" msprop:Generator_RowChangedName="zone_tEquipmentRowChanged" msprop:Generator_RowEvArgName="zone_tEquipmentRowChangeEvent" msprop:Generator_RowClassName="zone_tEquipmentRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="EquipmentId" msprop:Generator_ColumnVarNameInTable="columnEquipmentId" msprop:Generator_ColumnPropNameInRow="EquipmentId" msprop:Generator_ColumnPropNameInTable="EquipmentIdColumn" msprop:Generator_UserColumnName="EquipmentId" type="xs:int" minOccurs="0" />
+              <xs:element name="EquipmentType" msprop:Generator_ColumnVarNameInTable="columnEquipmentType" msprop:Generator_ColumnPropNameInRow="EquipmentType" msprop:Generator_ColumnPropNameInTable="EquipmentTypeColumn" msprop:Generator_UserColumnName="EquipmentType" type="xs:string" minOccurs="0" />
+              <xs:element name="EquipmentName" msprop:Generator_ColumnVarNameInTable="columnEquipmentName" msprop:Generator_ColumnPropNameInRow="EquipmentName" msprop:Generator_ColumnPropNameInTable="EquipmentNameColumn" msprop:Generator_UserColumnName="EquipmentName" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="zone_tMeteredArea" msprop:Generator_TableClassName="zone_tMeteredAreaDataTable" msprop:Generator_TableVarName="tablezone_tMeteredArea" msprop:Generator_TablePropName="zone_tMeteredArea" msprop:Generator_RowDeletingName="zone_tMeteredAreaRowDeleting" msprop:Generator_RowChangingName="zone_tMeteredAreaRowChanging" msprop:Generator_RowEvHandlerName="zone_tMeteredAreaRowChangeEventHandler" msprop:Generator_RowDeletedName="zone_tMeteredAreaRowDeleted" msprop:Generator_UserTableName="zone_tMeteredArea" msprop:Generator_RowChangedName="zone_tMeteredAreaRowChanged" msprop:Generator_RowEvArgName="zone_tMeteredAreaRowChangeEvent" msprop:Generator_RowClassName="zone_tMeteredAreaRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MeteredAreaId" msprop:Generator_ColumnVarNameInTable="columnMeteredAreaId" msprop:Generator_ColumnPropNameInRow="MeteredAreaId" msprop:Generator_ColumnPropNameInTable="MeteredAreaIdColumn" msprop:Generator_UserColumnName="MeteredAreaId" type="xs:int" minOccurs="0" />
+              <xs:element name="AreaName" msprop:Generator_ColumnVarNameInTable="columnAreaName" msprop:Generator_ColumnPropNameInRow="AreaName" msprop:Generator_ColumnPropNameInTable="AreaNameColumn" msprop:Generator_UserColumnName="AreaName" type="xs:string" minOccurs="0" />
+              <xs:element name="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" msprop:Generator_UserColumnName="Description" type="xs:string" minOccurs="0" />
+              <xs:element name="TownId" msprop:Generator_ColumnVarNameInTable="columnTownId" msprop:Generator_ColumnPropNameInRow="TownId" msprop:Generator_ColumnPropNameInTable="TownIdColumn" msprop:Generator_UserColumnName="TownId" type="xs:int" minOccurs="0" />
+              <xs:element name="CityId" msprop:Generator_ColumnVarNameInTable="columnCityId" msprop:Generator_ColumnPropNameInRow="CityId" msprop:Generator_ColumnPropNameInTable="CityIdColumn" msprop:Generator_UserColumnName="CityId" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="zone_tMeterPoint" msprop:Generator_TableClassName="zone_tMeterPointDataTable" msprop:Generator_TableVarName="tablezone_tMeterPoint" msprop:Generator_TablePropName="zone_tMeterPoint" msprop:Generator_RowDeletingName="zone_tMeterPointRowDeleting" msprop:Generator_RowChangingName="zone_tMeterPointRowChanging" msprop:Generator_RowEvHandlerName="zone_tMeterPointRowChangeEventHandler" msprop:Generator_RowDeletedName="zone_tMeterPointRowDeleted" msprop:Generator_UserTableName="zone_tMeterPoint" msprop:Generator_RowChangedName="zone_tMeterPointRowChanged" msprop:Generator_RowEvArgName="zone_tMeterPointRowChangeEvent" msprop:Generator_RowClassName="zone_tMeterPointRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MeterPointId" msprop:Generator_ColumnVarNameInTable="columnMeterPointId" msprop:Generator_ColumnPropNameInRow="MeterPointId" msprop:Generator_ColumnPropNameInTable="MeterPointIdColumn" msprop:Generator_UserColumnName="MeterPointId" type="xs:int" minOccurs="0" />
+              <xs:element name="MeteredAreaId" msprop:Generator_ColumnVarNameInTable="columnMeteredAreaId" msprop:Generator_ColumnPropNameInRow="MeteredAreaId" msprop:Generator_ColumnPropNameInTable="MeteredAreaIdColumn" msprop:Generator_UserColumnName="MeteredAreaId" type="xs:int" minOccurs="0" />
+              <xs:element name="PmumId" msprop:Generator_ColumnVarNameInTable="columnPmumId" msprop:Generator_ColumnPropNameInRow="PmumId" msprop:Generator_ColumnPropNameInTable="PmumIdColumn" msprop:Generator_UserColumnName="PmumId" type="xs:int" minOccurs="0" />
+              <xs:element name="PmumName" msprop:Generator_ColumnVarNameInTable="columnPmumName" msprop:Generator_ColumnPropNameInRow="PmumName" msprop:Generator_ColumnPropNameInTable="PmumNameColumn" msprop:Generator_UserColumnName="PmumName" type="xs:string" minOccurs="0" />
+              <xs:element name="EquipmentId" msprop:Generator_ColumnVarNameInTable="columnEquipmentId" msprop:Generator_ColumnPropNameInRow="EquipmentId" msprop:Generator_ColumnPropNameInTable="EquipmentIdColumn" msprop:Generator_UserColumnName="EquipmentId" type="xs:int" minOccurs="0" />
+              <xs:element name="ReadSource" msprop:Generator_ColumnVarNameInTable="columnReadSource" msprop:Generator_ColumnPropNameInRow="ReadSource" msprop:Generator_ColumnPropNameInTable="ReadSourceColumn" msprop:Generator_UserColumnName="ReadSource" type="xs:string" minOccurs="0" />
+              <xs:element name="CalcSign" msprop:Generator_ColumnVarNameInTable="columnCalcSign" msprop:Generator_ColumnPropNameInRow="CalcSign" msprop:Generator_ColumnPropNameInTable="CalcSignColumn" msprop:Generator_UserColumnName="CalcSign" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="zone_EquipmentType" msprop:Generator_TableClassName="zone_EquipmentTypeDataTable" msprop:Generator_TableVarName="tablezone_EquipmentType" msprop:Generator_TablePropName="zone_EquipmentType" msprop:Generator_RowDeletingName="zone_EquipmentTypeRowDeleting" msprop:Generator_RowChangingName="zone_EquipmentTypeRowChanging" msprop:Generator_RowEvHandlerName="zone_EquipmentTypeRowChangeEventHandler" msprop:Generator_RowDeletedName="zone_EquipmentTypeRowDeleted" msprop:Generator_UserTableName="zone_EquipmentType" msprop:Generator_RowChangedName="zone_EquipmentTypeRowChanged" msprop:Generator_RowEvArgName="zone_EquipmentTypeRowChangeEvent" msprop:Generator_RowClassName="zone_EquipmentTypeRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="EquipmentTypeId" msprop:Generator_ColumnVarNameInTable="columnEquipmentTypeId" msprop:Generator_ColumnPropNameInRow="EquipmentTypeId" msprop:Generator_ColumnPropNameInTable="EquipmentTypeIdColumn" msprop:Generator_UserColumnName="EquipmentTypeId" type="xs:int" minOccurs="0" />
+              <xs:element name="TypeExplain" msprop:Generator_ColumnVarNameInTable="columnTypeExplain" msprop:Generator_ColumnPropNameInRow="TypeExplain" msprop:Generator_ColumnPropNameInTable="TypeExplainColumn" msprop:Generator_UserColumnName="TypeExplain" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="zone_tPmumDistrictHistory" msprop:Generator_TableClassName="zone_tPmumDistrictHistoryDataTable" msprop:Generator_TableVarName="tablezone_tPmumDistrictHistory" msprop:Generator_TablePropName="zone_tPmumDistrictHistory" msprop:Generator_RowDeletingName="zone_tPmumDistrictHistoryRowDeleting" msprop:Generator_RowChangingName="zone_tPmumDistrictHistoryRowChanging" msprop:Generator_RowEvHandlerName="zone_tPmumDistrictHistoryRowChangeEventHandler" msprop:Generator_RowDeletedName="zone_tPmumDistrictHistoryRowDeleted" msprop:Generator_UserTableName="zone_tPmumDistrictHistory" msprop:Generator_RowChangedName="zone_tPmumDistrictHistoryRowChanged" msprop:Generator_RowEvArgName="zone_tPmumDistrictHistoryRowChangeEvent" msprop:Generator_RowClassName="zone_tPmumDistrictHistoryRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PmumDistrictHistoryId" msprop:Generator_ColumnVarNameInTable="columnPmumDistrictHistoryId" msprop:Generator_ColumnPropNameInRow="PmumDistrictHistoryId" msprop:Generator_ColumnPropNameInTable="PmumDistrictHistoryIdColumn" msprop:Generator_UserColumnName="PmumDistrictHistoryId" type="xs:int" minOccurs="0" />
+              <xs:element name="PmumId" msprop:Generator_ColumnVarNameInTable="columnPmumId" msprop:Generator_ColumnPropNameInRow="PmumId" msprop:Generator_ColumnPropNameInTable="PmumIdColumn" msprop:Generator_UserColumnName="PmumId" type="xs:int" minOccurs="0" />
+              <xs:element name="CityId" msprop:Generator_ColumnVarNameInTable="columnCityId" msprop:Generator_ColumnPropNameInRow="CityId" msprop:Generator_ColumnPropNameInTable="CityIdColumn" msprop:Generator_UserColumnName="CityId" type="xs:int" minOccurs="0" />
+              <xs:element name="TownId" msprop:Generator_ColumnVarNameInTable="columnTownId" msprop:Generator_ColumnPropNameInRow="TownId" msprop:Generator_ColumnPropNameInTable="TownIdColumn" msprop:Generator_UserColumnName="TownId" type="xs:int" minOccurs="0" />
+              <xs:element name="BeginDate" msprop:Generator_ColumnVarNameInTable="columnBeginDate" msprop:Generator_ColumnPropNameInRow="BeginDate" msprop:Generator_ColumnPropNameInTable="BeginDateColumn" msprop:Generator_UserColumnName="BeginDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="EndDate" msprop:Generator_ColumnVarNameInTable="columnEndDate" msprop:Generator_ColumnPropNameInRow="EndDate" msprop:Generator_ColumnPropNameInTable="EndDateColumn" msprop:Generator_UserColumnName="EndDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" msprop:Generator_UserColumnName="Description" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="zone_tPmumPointFactor" msprop:Generator_TableClassName="zone_tPmumPointFactorDataTable" msprop:Generator_TableVarName="tablezone_tPmumPointFactor" msprop:Generator_TablePropName="zone_tPmumPointFactor" msprop:Generator_RowDeletingName="zone_tPmumPointFactorRowDeleting" msprop:Generator_RowChangingName="zone_tPmumPointFactorRowChanging" msprop:Generator_RowEvHandlerName="zone_tPmumPointFactorRowChangeEventHandler" msprop:Generator_RowDeletedName="zone_tPmumPointFactorRowDeleted" msprop:Generator_UserTableName="zone_tPmumPointFactor" msprop:Generator_RowChangedName="zone_tPmumPointFactorRowChanged" msprop:Generator_RowEvArgName="zone_tPmumPointFactorRowChangeEvent" msprop:Generator_RowClassName="zone_tPmumPointFactorRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PmumPointFactorId" msprop:Generator_ColumnVarNameInTable="columnPmumPointFactorId" msprop:Generator_ColumnPropNameInRow="PmumPointFactorId" msprop:Generator_ColumnPropNameInTable="PmumPointFactorIdColumn" msprop:Generator_UserColumnName="PmumPointFactorId" type="xs:int" minOccurs="0" />
+              <xs:element name="PmumTypeId" msprop:Generator_ColumnVarNameInTable="columnPmumTypeId" msprop:Generator_ColumnPropNameInRow="PmumTypeId" msprop:Generator_ColumnPropNameInTable="PmumTypeIdColumn" msprop:Generator_UserColumnName="PmumTypeId" type="xs:int" minOccurs="0" />
+              <xs:element name="ReceivedFactor" msprop:Generator_ColumnVarNameInTable="columnReceivedFactor" msprop:Generator_ColumnPropNameInRow="ReceivedFactor" msprop:Generator_ColumnPropNameInTable="ReceivedFactorColumn" msprop:Generator_UserColumnName="ReceivedFactor" type="xs:int" minOccurs="0" />
+              <xs:element name="DeliveredFactor" msprop:Generator_ColumnVarNameInTable="columnDeliveredFactor" msprop:Generator_ColumnPropNameInRow="DeliveredFactor" msprop:Generator_ColumnPropNameInTable="DeliveredFactorColumn" msprop:Generator_UserColumnName="DeliveredFactor" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="zone_tPmumTypeHistory" msprop:Generator_TableClassName="zone_tPmumTypeHistoryDataTable" msprop:Generator_TableVarName="tablezone_tPmumTypeHistory" msprop:Generator_TablePropName="zone_tPmumTypeHistory" msprop:Generator_RowDeletingName="zone_tPmumTypeHistoryRowDeleting" msprop:Generator_RowChangingName="zone_tPmumTypeHistoryRowChanging" msprop:Generator_RowEvHandlerName="zone_tPmumTypeHistoryRowChangeEventHandler" msprop:Generator_RowDeletedName="zone_tPmumTypeHistoryRowDeleted" msprop:Generator_UserTableName="zone_tPmumTypeHistory" msprop:Generator_RowChangedName="zone_tPmumTypeHistoryRowChanged" msprop:Generator_RowEvArgName="zone_tPmumTypeHistoryRowChangeEvent" msprop:Generator_RowClassName="zone_tPmumTypeHistoryRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MeterTypeHistoryId" msprop:Generator_ColumnVarNameInTable="columnMeterTypeHistoryId" msprop:Generator_ColumnPropNameInRow="MeterTypeHistoryId" msprop:Generator_ColumnPropNameInTable="MeterTypeHistoryIdColumn" msprop:Generator_UserColumnName="MeterTypeHistoryId" type="xs:int" minOccurs="0" />
+              <xs:element name="PmumId" msprop:Generator_ColumnVarNameInTable="columnPmumId" msprop:Generator_ColumnPropNameInRow="PmumId" msprop:Generator_ColumnPropNameInTable="PmumIdColumn" msprop:Generator_UserColumnName="PmumId" type="xs:int" minOccurs="0" />
+              <xs:element name="PmumTypeId" msprop:Generator_ColumnVarNameInTable="columnPmumTypeId" msprop:Generator_ColumnPropNameInRow="PmumTypeId" msprop:Generator_ColumnPropNameInTable="PmumTypeIdColumn" msprop:Generator_UserColumnName="PmumTypeId" type="xs:int" minOccurs="0" />
+              <xs:element name="BeginDate" msprop:Generator_ColumnVarNameInTable="columnBeginDate" msprop:Generator_ColumnPropNameInRow="BeginDate" msprop:Generator_ColumnPropNameInTable="BeginDateColumn" msprop:Generator_UserColumnName="BeginDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="EndDate" msprop:Generator_ColumnVarNameInTable="columnEndDate" msprop:Generator_ColumnPropNameInRow="EndDate" msprop:Generator_ColumnPropNameInTable="EndDateColumn" msprop:Generator_UserColumnName="EndDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" msprop:Generator_UserColumnName="Description" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AllDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tCalcParam">
+          <Key>
+            <PropertyRef Name="CalcParamId" />
+          </Key>
+          <Property Name="CalcParamId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EquipmentId" Type="int" Nullable="false" />
+          <Property Name="ReadSource" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="kVA" Type="float" Nullable="false" />
+          <Property Name="K1" Type="float" />
+          <Property Name="K2" Type="float" />
+          <Property Name="K3" Type="float" />
+          <Property Name="K4" Type="float" />
+          <Property Name="K5" Type="float" />
+          <Property Name="K6" Type="float" />
+          <Property Name="K7" Type="float" />
+          <Property Name="K8" Type="float" />
+          <Property Name="K9" Type="float" />
+          <Property Name="K10" Type="float" />
+          <Property Name="K11" Type="float" />
+          <Property Name="K12" Type="float" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tCity">
+          <Key>
+            <PropertyRef Name="CityId" />
+          </Key>
+          <Property Name="CityId" Type="int" Nullable="false" />
+          <Property Name="CityName" Type="varchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tEquipment">
+          <Key>
+            <PropertyRef Name="EquipmentId" />
+          </Key>
+          <Property Name="EquipmentId" Type="int" StoreGeneratedPattern="None" Nullable="false" />
+          <Property Name="EquipmentType" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="EquipmentRefNo" Type="bigint" />
+          <Property Name="EquipmentRefText" Type="varchar" MaxLength="20" />
+          <Property Name="EquipmentName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CBSId" Type="int" />
+        </EntityType>
+        <EntityType Name="tMeteredArea">
+          <Key>
+            <PropertyRef Name="MeteredAreaId" />
+          </Key>
+          <Property Name="MeteredAreaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TownId" Type="int" Nullable="false" />
+          <Property Name="AreaName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="tMeterPoint">
+          <Key>
+            <PropertyRef Name="MeterPointId" />
+          </Key>
+          <Property Name="MeterPointId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MeteredAreaId" Type="int" Nullable="false" />
+          <Property Name="EquipmentId" Type="int" Nullable="false" />
+          <Property Name="ReadSource" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="CalcSign" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tReadout">
+          <Key>
+            <PropertyRef Name="ReadoutId" />
+          </Key>
+          <Property Name="ReadoutId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EquipmentId" Type="int" Nullable="false" />
+          <Property Name="ReadSource" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ReadBeginDate" Type="datetime" Nullable="false" />
+          <Property Name="ReadEndDate" Type="datetime" Nullable="false" />
+          <Property Name="kWh" Type="float" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tTown">
+          <Key>
+            <PropertyRef Name="TownId" />
+          </Key>
+          <Property Name="CityId" Type="int" Nullable="false" />
+          <Property Name="TownId" Type="int" Nullable="false" />
+          <Property Name="TownName" Type="varchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="AllDataModelStoreContainer">
+          <EntitySet Name="tCalcParam" EntityType="Self.tCalcParam" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tCity" EntityType="Self.tCity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tEquipment" EntityType="Self.tEquipment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tMeteredArea" EntityType="Self.tMeteredArea" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tMeterPoint" EntityType="Self.tMeterPoint" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tReadout" EntityType="Self.tReadout" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tTown" EntityType="Self.tTown" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tCalcParam">
+          <Documentation>
+            <Summary>Parametre</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="CalcParamId" />
+          </Key>
+          <Property Name="CalcParamId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EquipmentId" Type="Int32" Nullable="false" />
+          <Property Name="EquipmentName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ReadSource" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ReadSourceName" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="kVA" Type="Double" />
+          <Property Name="K1" Type="Double" />
+          <Property Name="K2" Type="Double" />
+          <Property Name="K3" Type="Double" />
+          <Property Name="K4" Type="Double" />
+          <Property Name="K5" Type="Double" />
+          <Property Name="K6" Type="Double" />
+          <Property Name="K7" Type="Double" />
+          <Property Name="K8" Type="Double" />
+          <Property Name="K9" Type="Double" />
+          <Property Name="K10" Type="Double" />
+          <Property Name="K11" Type="Double" />
+          <Property Name="K12" Type="Double" />
+          <Property Name="DataPeriod" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tCity">
+          <Documentation>
+            <Summary>Şehir</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="CityId" />
+          </Key>
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="CityName" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tEquipment">
+          <Documentation>
+            <Summary>Ekipman</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="EquipmentId" />
+          </Key>
+          <Property Name="EquipmentId" Type="Int32" annotation:StoreGeneratedPattern="None" Nullable="false" />
+          <Property Name="EquipmentType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="EquipmentRefNo" Type="Int64" />
+          <Property Name="EquipmentRefText" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="EquipmentName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CBSId" Type="Int32" />
+          <Property Name="Bidirectional" Type="Boolean" />
+          <Property Name="EnergyDirection" Type="String" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="PmumTypeHistoryId" Type="Int32" Nullable="false" />
+          <Property Name="PmumName" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tMeteredArea">
+          <Documentation>
+            <Summary>Ölçüm Sahası</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="MeteredAreaId" />
+          </Key>
+          <Property Name="MeteredAreaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CityId" Type="Int32" a:SetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <Property Name="TownId" Type="Int32" Nullable="false" />
+          <Property Name="AreaName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="LastMeteredArea" Type="Int32" Nullable="false" />
+          <Property Name="MeterPointId" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tMeterPoint">
+          <Documentation>
+            <Summary>Ölçüm Noktası</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="MeterPointId" />
+          </Key>
+          <Property Name="MeterPointId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CityId" Type="Int32" a:SetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" Nullable="true" />
+          <Property Name="CityName" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="true" />
+          <Property Name="TownId" Type="Int32" Nullable="true" />
+          <Property Name="TownName" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="true" />
+          <Property Name="MeteredAreaId" Type="Int32" Nullable="false" />
+          <Property Name="AreaName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="true" />
+          <Property Name="EquipmentId" Type="Int32" Nullable="false" />
+          <Property Name="EquipmentName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="true" />
+          <Property Name="EquipmentType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="true" />
+          <Property Name="ReadSource" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CalcSign" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="PmumId" Type="Int32" Nullable="false" />
+          <Property Name="PmumName" Type="String" Nullable="false" />
+          <Property Name="PmumTypeId" Type="String" Nullable="false" />
+          <Property Name="PmumType" Type="String" Nullable="false" />
+          <Property Name="BeginDate" Type="DateTime" Nullable="false" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" />
+          <Property Name="PmumTypeHistoryId" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="IsValid" Type="String" Nullable="false" />
+          <Property Name="dllValid" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tReadout">
+          <Documentation>
+            <Summary>Manuel Veri</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="ReadoutId" />
+          </Key>
+          <Property Name="ReadoutId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EquipmentId" Type="Int32" Nullable="false" />
+          <Property Name="EquipmentName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ReadSource" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ReadBeginDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ReadEndDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="kWh" Type="Double" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="IsTemporary" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tTown">
+          <Documentation>
+            <Summary>İlçe</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="TownId" />
+          </Key>
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="TownId" Type="Int32" Nullable="false" />
+          <Property Name="TownName" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
+          <EntitySet Name="tCalcParam" EntityType="Self.tCalcParam" />
+          <EntitySet Name="tCity" EntityType="Self.tCity" />
+          <EntitySet Name="tEquipment" EntityType="Self.tEquipment" />
+          <EntitySet Name="tMeteredArea" EntityType="Self.tMeteredArea" />
+          <EntitySet Name="tMeterPoint" EntityType="Self.tMeterPoint" />
+          <EntitySet Name="tReadout" EntityType="Self.tReadout" />
+          <EntitySet Name="tTown" EntityType="Self.tTown" />
+          <EntitySet Name="PmumTypeHistorySet" EntityType="DataModel.PmumTypeHistory" />
+          <EntitySet Name="PmumDistrictHistorySet" EntityType="DataModel.PmumDistrictHistory" />
+          <EntitySet Name="UserSet" EntityType="DataModel.User" />
+        </EntityContainer>
+        <EntityType Name="PmumTypeHistory">
+          <Key>
+            <PropertyRef Name="PmumTypeHistoryId" />
+          </Key>
+          <Property Name="PmumTypeHistoryId" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" Name="PmumName" a:SetterAccess="Internal" Nullable="true" Type="String" />
+          <Property Name="PmumTypeId" Nullable="true" Type="String" />
+          <Property Name="BeginDate" Nullable="false" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Nullable="false" Type="DateTime" Precision="4" />
+          <Property Name="PmumId" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="PmumDistrictHistoryId" Type="Int32" Nullable="false" />
+          <Property Name="MeteredAreaId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PmumDistrictHistory">
+          <Key>
+            <PropertyRef Name="PmumDistrictHistoryId" />
+          </Key>
+          <Property Name="PmumDistrictHistoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PmumId" Type="Int32" Nullable="true" a:SetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <Property Name="PmumName" Type="String" Nullable="true" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="MeteredAreaId" Type="Int32" Nullable="false" />
+          <Property Name="MeterPointId" Type="Int32" Nullable="false" />
+          <Property Name="PmumTypeHistoryId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" />
+          <Property Name="EMail" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" />
+          <Property Name="RoleId" Type="Guid" Nullable="false" />
+          <Property Name="RoleName" Type="String" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="RoleValue" Type="Int32" Nullable="false" />
+          <Property Name="IlId" Type="Int32" Nullable="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AllDataModelStoreContainer" CdmEntityContainer="Entities">
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="False" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Default" />
+        <DesignerProperty Name="DDLGenerationTemplate" Value="$(VSEFTools)\DBGen\SSDLToSQL10.tt" />
+        <DesignerProperty Name="DatabaseGenerationWorkflow" Value="$(VSEFTools)\DBGen\TablePerTypeStrategy.xaml" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram DiagramId="c49cadc5c0ce4638b8db7f9ebdb62d75" Name="Diagram1">
+        <EntityTypeShape EntityType="DataModel.tCalcParam" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.tCity" Width="1.5" PointX="2.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.tEquipment" Width="1.5" PointX="2.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.tMeteredArea" Width="1.5" PointX="4.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.tMeterPoint" Width="1.5" PointX="8.625" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.tReadout" Width="1.5" PointX="6.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.tTown" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataModel.PmumTypeHistory" PointX="10.375" PointY="0.875" Width="1.5" />
+        <EntityTypeShape EntityType="DataModel.PmumDistrictHistory" Width="1.5" PointX="12.125" PointY="0.875" />
+        <EntityTypeShape EntityType="DataModel.User" Width="1.5" PointX="5.375" PointY="4.75" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

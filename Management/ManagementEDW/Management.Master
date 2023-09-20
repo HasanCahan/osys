@@ -1,0 +1,81 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="~/Management/ManagementEDW/Management.Master.cs" Inherits="OlcuYonetimSistemi.Management.ManagementEDW.Management" %>
+
+<%@ Register Src="~/Management/ucSidebar.ascx" TagPrefix="uc1" TagName="ucSidebar" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="/Content/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/site.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/bootstrap-theme.min.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/dashboard.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/ie10-viewport.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/bootstrap-datetimepicker.min.css" />
+    <script type="text/javascript" src="/Scripts/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/Scripts/bootstrap.min.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="/Scripts/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="/Scripts/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="/Scripts/jquery.bootstrap-growl.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header pull-left">
+                    <%--<a class="navbar-brand" href="/">Ölçü Yönetim Sistemi</a>--%>
+                    <a class="navbar-brand" href="/">
+                        <asp:Literal ID="ltProjectName" runat="server"></asp:Literal></a>
+                </div>
+                <div class="navbar-header pull-right">
+                    <ul class="nav pull-left">
+                        <li class="navbar-text pull-left">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true">&nbsp;</span>
+                            <span><%=Page.User.Identity.Name%></span>
+                        </li>
+                    </ul>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Menü</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse navbar-right">
+                    <%--<uc1:ucSidebar runat="server" ID="ucSidebar1" IsNavbar="true" />--%>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="default.aspx"><i class="glyphicon glyphicon-home"></i>&nbsp;Ana Sayfa</a></li>
+                        <li>
+                            <asp:LinkButton ID="lblLogoutZone" runat="server" OnClick="lbLogout_Click" Text="Oturumu Kapat">
+                                <span aria-hidden="true" class="glyphicon glyphicon-off"></span>&nbsp;Oturumu Kapat
+                            </asp:LinkButton></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3 col-md-2 sidebar">
+                    <uc1:ucSidebar runat="server" ID="ucSidebar" />
+                </div>
+                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                    <asp:ContentPlaceHolder ID="cphPage" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

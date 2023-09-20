@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>D:\ProjectsSVN\OlcuYonetimSistemi\OlcuYonetimSistemi\..\Publish</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="Admin/UserList.aspx">
+      <publishTime>02/10/2017 09:01:32</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.compiled">
+      <publishTime>02/10/2017 09:16:18</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.dll">
+      <publishTime>02/10/2017 09:16:18</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.EnterpriseLibrary.Common.dll">
+      <publishTime>12/22/2015 14:23:48</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.EnterpriseLibrary.Data.dll">
+      <publishTime>12/22/2015 14:23:48</publishTime>
+    </File>
+    <File Include="bin/OlcuYonetimSistemi.dll">
+      <publishTime>02/10/2017 09:08:44</publishTime>
+    </File>
+    <File Include="Content/bootstrap-datetimepicker.css">
+      <publishTime>01/09/2016 17:42:21</publishTime>
+    </File>
+    <File Include="Content/bootstrap-datetimepicker.min.css">
+      <publishTime>01/09/2016 17:42:21</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.css">
+      <publishTime>12/22/2015 14:24:48</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.css.map">
+      <publishTime>12/22/2015 14:24:48</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.min.css">
+      <publishTime>12/22/2015 14:24:48</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.min.css.map">
+      <publishTime>12/22/2015 14:24:48</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css">
+      <publishTime>12/22/2015 14:24:48</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css.map">
+      <publishTime>12/22/2015 14:24:48</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css">
+      <publishTime>12/22/2015 14:24:48</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css.map">
+      <publishTime>12/22/2015 14:24:48</publishTime>
+    </File>
+    <File Include="Content/dashboard.css">
+      <publishTime>12/22/2015 15:16:33</publishTime>
+    </File>
+    <File Include="Content/ie10-viewport.css">
+      <publishTime>12/22/2015 16:38:53</publishTime>
+    </File>
+    <File Include="Content/images/bg.jpg">
+      <publishTime>01/08/2016 17:09:26</publishTime>
+    </File>
+    <File Include="Default.aspx">
+      <publishTime>05/30/2016 17:18:39</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>12/22/2015 14:24:48</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>12/22/2015 14:24:48</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>12/22/2015 14:24:48</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>12/22/2015 14:24:48</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff2">
+      <publishTime>12/22/2015 14:24:48</publishTime>
+    </File>
+    <File Include="Login.aspx">
+      <publishTime>01/24/2016 20:17:38</publishTime>
+    </File>
+    <File Include="Management/AdminPanel.aspx">
+      <publishTime>02/10/2017 08:08:44</publishTime>
+    </File>
+    <File Include="Management/CalcParamAddEdit.aspx">
+      <publishTime>01/22/2016 17:18:40</publishTime>
+    </File>
+    <File Include="Management/Default.aspx">
+      <publishTime>01/08/2016 17:25:04</publishTime>
+    </File>
+    <File Include="Management/EquipmentList.aspx">
+      <publishTime>06/14/2016 12:34:00</publishTime>
+    </File>
+    <File Include="Management/Management.Master">
+      <publishTime>06/14/2016 12:34:00</publishTime>
+    </File>
+    <File Include="Management/ManagementEDW/ChangePmumTypeList.aspx">
+      <publishTime>06/14/2016 12:34:00</publishTime>
+    </File>
+    <File Include="Management/ManagementEDW/Default.aspx">
+      <publishTime>05/31/2016 17:26:16</publishTime>
+    </File>
+    <File Include="Management/ManagementEDW/EquipmentList.aspx">
+      <publishTime>05/31/2016 17:26:16</publishTime>
+    </File>
+    <File Include="Management/ManagementEDW/Management.Master">
+      <publishTime>05/31/2016 17:26:16</publishTime>
+    </File>
+    <File Include="Management/ManagementEDW/MeteredAreaList.aspx">
+      <publishTime>05/31/2016 17:26:16</publishTime>
+    </File>
+    <File Include="Management/ManagementEDW/MeterPointList.aspx">
+      <publishTime>06/14/2016 12:34:00</publishTime>
+    </File>
+    <File Include="Management/ManagementEDW/ModalDialog.Master">
+      <publishTime>05/31/2016 17:26:16</publishTime>
+    </File>
+    <File Include="Management/ManagementEDW/PmumList.aspx">
+      <publishTime>06/14/2016 12:34:00</publishTime>
+    </File>
+    <File Include="Management/MeteredAreaList.aspx">
+      <publishTime>02/02/2016 10:49:30</publishTime>
+    </File>
+    <File Include="Management/MeterPointList.aspx">
+      <publishTime>11/03/2016 12:12:13</publishTime>
+    </File>
+    <File Include="Management/ModalDialog.Master">
+      <publishTime>01/09/2016 17:43:53</publishTime>
+    </File>
+    <File Include="Management/PagerTest.aspx">
+      <publishTime>01/25/2016 15:22:42</publishTime>
+    </File>
+    <File Include="Management/ReadoutList.aspx">
+      <publishTime>05/30/2016 17:18:39</publishTime>
+    </File>
+    <File Include="Management/ucAlert.ascx">
+      <publishTime>01/04/2016 23:44:16</publishTime>
+    </File>
+    <File Include="Management/ucPager.ascx">
+      <publishTime>02/01/2016 17:06:06</publishTime>
+    </File>
+    <File Include="Management/ucSidebar.ascx">
+      <publishTime>02/10/2017 09:07:57</publishTime>
+    </File>
+    <File Include="Models/DataModelZone.xsc">
+      <publishTime>05/30/2016 17:18:39</publishTime>
+    </File>
+    <File Include="Models/DataModelZone.xss">
+      <publishTime>05/30/2016 17:18:39</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>01/09/2016 17:42:21</publishTime>
+    </File>
+    <File Include="PrecompiledApp.config">
+      <publishTime>02/10/2017 09:16:17</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap-datetimepicker.js">
+      <publishTime>01/09/2016 17:42:21</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap-datetimepicker.min.js">
+      <publishTime>01/09/2016 17:42:21</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.js">
+      <publishTime>12/22/2015 14:24:48</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>12/22/2015 14:24:48</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.9.1.js">
+      <publishTime>12/22/2015 14:24:48</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.9.1.min.js">
+      <publishTime>12/22/2015 14:24:48</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.9.1.min.map">
+      <publishTime>12/22/2015 14:24:48</publishTime>
+    </File>
+    <File Include="Scripts/jquery.bootstrap-growl.min.js">
+      <publishTime>01/20/2016 15:32:32</publishTime>
+    </File>
+    <File Include="Scripts/moment-with-locales.js">
+      <publishTime>01/09/2016 17:42:21</publishTime>
+    </File>
+    <File Include="Scripts/moment-with-locales.min.js">
+      <publishTime>01/09/2016 17:42:21</publishTime>
+    </File>
+    <File Include="Scripts/moment.js">
+      <publishTime>01/09/2016 17:42:21</publishTime>
+    </File>
+    <File Include="Scripts/moment.min.js">
+      <publishTime>01/09/2016 17:42:21</publishTime>
+    </File>
+    <File Include="Service References/WSDEDAS/OlcuYonetimSistemi.WSDEDAS.GenericReturnOfAboneOzetBilgiBM94PaM9.datasource">
+      <publishTime>01/08/2016 16:26:34</publishTime>
+    </File>
+    <File Include="Service References/WSDEDAS/OlcuYonetimSistemi.WSDEDAS.GenericReturnOfArrayOfAboneOzetBilgiBM94PaM9.datasource">
+      <publishTime>01/08/2016 16:26:35</publishTime>
+    </File>
+    <File Include="Service References/WSDEDAS/OlcuYonetimSistemi.WSDEDAS.GenericReturnOfArrayOfAboneSozlesmeOzetBM94PaM9.datasource">
+      <publishTime>01/08/2016 16:26:35</publishTime>
+    </File>
+    <File Include="Service References/WSDEDAS/OlcuYonetimSistemi.WSDEDAS.GenericReturnOfArrayOfFaturaBM94PaM9.datasource">
+      <publishTime>01/08/2016 16:26:35</publishTime>
+    </File>
+    <File Include="Service References/WSDEDAS/OlcuYonetimSistemi.WSDEDAS.GenericReturnOfArrayOfKeyValuePairOfintstringR8RmUPp7.datasource">
+      <publishTime>01/08/2016 16:26:34</publishTime>
+    </File>
+    <File Include="Service References/WSDEDAS/OlcuYonetimSistemi.WSDEDAS.GenericReturnOfArrayOfKeyValuePairOfstringstringR8RmUPp7.datasource">
+      <publishTime>01/08/2016 16:26:34</publishTime>
+    </File>
+    <File Include="Service References/WSDEDAS/OlcuYonetimSistemi.WSDEDAS.GenericReturnOfArrayOfPanoModemOzetBilgiBM94PaM9.datasource">
+      <publishTime>01/08/2016 16:26:35</publishTime>
+    </File>
+    <File Include="Service References/WSDEDAS/OlcuYonetimSistemi.WSDEDAS.GenericReturnOfArrayOfSayacOzetBilgiBM94PaM9.datasource">
+      <publishTime>01/08/2016 16:26:34</publishTime>
+    </File>
+    <File Include="Service References/WSDEDAS/OlcuYonetimSistemi.WSDEDAS.GenericReturnOfArrayOfSokulmusSayacBM94PaM9.datasource">
+      <publishTime>01/08/2016 16:26:34</publishTime>
+    </File>
+    <File Include="Service References/WSDEDAS/OlcuYonetimSistemi.WSDEDAS.GenericReturnOfArrayOfTrafoOzetBilgiBM94PaM9.datasource">
+      <publishTime>01/08/2016 16:26:35</publishTime>
+    </File>
+    <File Include="Service References/WSDEDAS/OlcuYonetimSistemi.WSDEDAS.GenericReturnOfArrayOfTupleOfdateTimestring5F2dSckg.datasource">
+      <publishTime>01/08/2016 16:26:34</publishTime>
+    </File>
+    <File Include="Service References/WSDEDAS/OlcuYonetimSistemi.WSDEDAS.GenericReturnOfboolean.datasource">
+      <publishTime>01/08/2016 16:26:34</publishTime>
+    </File>
+    <File Include="Service References/WSDEDAS/OlcuYonetimSistemi.WSDEDAS.GenericReturnOfKeyValuePairOfstringstringR8RmUPp7.datasource">
+      <publishTime>01/08/2016 16:26:34</publishTime>
+    </File>
+    <File Include="Service References/WSDEDAS/OlcuYonetimSistemi.WSDEDAS.GenericReturnOfPanoModemOzetBilgiBM94PaM9.datasource">
+      <publishTime>01/08/2016 16:26:35</publishTime>
+    </File>
+    <File Include="Service References/WSDEDAS/OlcuYonetimSistemi.WSDEDAS.GenericReturnOfSayacDetayBilgiBM94PaM9.datasource">
+      <publishTime>01/08/2016 16:26:34</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>02/10/2017 09:08:44</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
